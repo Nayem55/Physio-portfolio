@@ -1,0 +1,69 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+/* Design tokens taken from the mockups. Light theme only. */
+@theme {
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-heading), ui-sans-serif, system-ui, sans-serif;
+
+  --color-brand-50: #ebf7f2;
+  --color-brand-100: #d5efe5;
+  --color-brand-200: #a9dcc9;
+  --color-brand-300: #6fc4a6;
+  --color-brand-400: #34a982;
+  --color-brand-500: #14936b;
+  --color-brand-600: #0f7d5c;
+  --color-brand-700: #0c684d;
+  --color-brand-800: #0b5240;
+
+  --color-ink: #0f1c2b;
+  --color-body: #3c4a58;
+  --color-muted: #5f6d7a;
+  --color-line: #dde7e4;
+  --color-surface: #f2f8f6;
+  --color-footer: #0e3632;
+  --color-footer-line: #24504b;
+
+  --shadow-card: 0 1px 2px rgb(15 28 43 / 0.04), 0 8px 24px -12px rgb(15 28 43 / 0.12);
+  --shadow-float: 0 24px 48px -20px rgb(15 28 43 / 0.28);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    @apply bg-white font-sans text-body antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display text-ink;
+    text-wrap: balance;
+  }
+
+  /* Anchor targets clear the sticky header. */
+  [id] {
+    scroll-margin-top: 6rem;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand-500;
+  }
+}
