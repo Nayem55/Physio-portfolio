@@ -46,6 +46,10 @@ export const Posts: CollectionConfig = {
       name: 'coverImage',
       type: 'upload',
       relationTo: 'media',
+      admin: {
+        description: 'Upload a cover image when no direct image URL is entered below.',
+        condition: (_, siblingData) => !siblingData?.coverImageUrl,
+      },
     },
     {
       name: 'coverImageUrl',

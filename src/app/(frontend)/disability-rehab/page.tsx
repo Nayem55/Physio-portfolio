@@ -49,7 +49,6 @@ export default async function DisabilityRehabPage() {
   return (
     <>
       <PageHero
-        eyebrow="Specialty in disability management & rehabilitation"
         title={
           <>
             Supporting movement. <Highlight>Building independence.</Highlight>

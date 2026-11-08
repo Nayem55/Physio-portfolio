@@ -39,7 +39,6 @@ export default async function ContactPage() {
   return (
     <>
       <PageHero
-        eyebrow="Contact & appointment"
         title={
           <>
             Get in Touch &amp; <br className="hidden sm:block" />

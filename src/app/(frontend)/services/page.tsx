@@ -40,7 +40,6 @@ export default async function ServicesPage() {
   return (
     <>
       <PageHero
-        eyebrow="Physiotherapy services"
         title={
           <>
             Comprehensive Physiotherapy Services for Mobility, Recovery and <Highlight>Independence.</Highlight>

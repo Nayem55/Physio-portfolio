@@ -85,7 +85,10 @@ export const Profile: GlobalConfig = {
               name: 'portrait',
               type: 'upload',
               relationTo: 'media',
-              admin: { description: 'Your portrait, used on the Home and About pages.' },
+              admin: {
+                description: 'Upload a portrait when no direct image URL is entered below.',
+                condition: (_, siblingData) => !siblingData?.portraitUrl,
+              },
             },
             {
               name: 'portraitUrl',
@@ -97,7 +100,10 @@ export const Profile: GlobalConfig = {
               name: 'treatmentPhoto',
               type: 'upload',
               relationTo: 'media',
-              admin: { description: 'A treatment photo, used at the top of Home, Services and Contact.' },
+              admin: {
+                description: 'Upload a treatment photo when no direct image URL is entered below.',
+                condition: (_, siblingData) => !siblingData?.treatmentPhotoUrl,
+              },
             },
             {
               name: 'treatmentPhotoUrl',
@@ -109,7 +115,10 @@ export const Profile: GlobalConfig = {
               name: 'rehabPhoto',
               type: 'upload',
               relationTo: 'media',
-              admin: { description: 'Used on the Disability & Rehab page.' },
+              admin: {
+                description: 'Upload a rehab photo when no direct image URL is entered below.',
+                condition: (_, siblingData) => !siblingData?.rehabPhotoUrl,
+              },
             },
             {
               name: 'rehabPhotoUrl',

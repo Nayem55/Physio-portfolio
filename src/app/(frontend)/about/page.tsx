@@ -48,7 +48,6 @@ export default async function AboutPage() {
   return (
     <>
       <PageHero
-        eyebrow="About me"
         title="About Me"
         lede={profile.intro || profile.bio}
         actions={
