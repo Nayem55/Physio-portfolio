@@ -1,19 +1,12 @@
 # Abdullah Shuchorit — Physiotherapy Website
 
-## Current application structure
+## Authoritative application
 
-The active implementation keeps the original Next.js visual frontend and uses a separate MongoDB API:
+The only website UI is the root **Next.js + Payload CMS** application. It is served by the supervisor on port **1020**. Its dashboard is available at `/admin` on the same port.
 
-- root project: the original Next.js website on port `1020`.
-- `backend/`: Express + MongoDB API on port `1021`.
+`backend/` is a separate Express auxiliary API on port **1023**. It is supervised independently, but it is not a replacement UI and must never be used to serve the website.
 
-The API default is `mongodb://127.0.0.1:27017/physio-portfolio`. Start MongoDB first, then run `npm install` and `npm run dev` in the root and `backend/` folders. The backend seeds the profile, contact data, and services on its first start.
-
-The active API routes are `GET /api/health`, `GET /api/site`, and `POST /api/appointments`.
-
-## Legacy implementation notes
-
-The notes below describe the earlier Next.js/Payload/SQLite implementation retained in `src/` for reference. It is no longer the app started on ports 1020 and 1021.
+The retired Vite fallback has been removed to prevent the wrong UI being launched again.
 
 - **Next.js 16** (App Router) + **TypeScript** + **Tailwind CSS v4**
 - **Payload CMS 3**, which runs inside the same Next.js app. The dashboard is at `/admin`.
@@ -28,8 +21,8 @@ npm run seed              # loads starter content + photos (safe to re-run)
 npm run dev
 ```
 
-- Website: http://localhost:3000
-- Dashboard: http://localhost:3000/admin. On the first visit it asks you to create the first login.
+- Website: http://localhost:1020
+- Dashboard: http://localhost:1020/admin. On the first visit it asks you to create the first login.
 
 Requires Node `^22.23.4 || >=24.22.1`.
 
